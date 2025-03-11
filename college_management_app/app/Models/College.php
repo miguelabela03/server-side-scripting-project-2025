@@ -11,4 +11,10 @@ class College extends Model
 
     // Enable mass assignment
     protected $fillable = ["name", "address"];
+
+    // Defining the relationship with the Studnet model
+    // A college can have multiple students, therefore hasMany() relationship
+    public function students() {
+        return $this->hasMany(Student::class);
+    }
 }
