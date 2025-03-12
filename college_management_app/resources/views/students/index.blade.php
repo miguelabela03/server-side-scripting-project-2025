@@ -9,7 +9,7 @@
                         <div class="card-header card-title">
                             <div class="d-flex align-items-center justify-content-between">
                                 <h2 class="mb-0">Students</h2>
-                                <a href="studentForm.html" id="addNew" class="btn btn-outline-warning">
+                                <a href={{ route('students.create') }} id="addNew" class="btn btn-outline-warning">
                                     <ion-icon name="add-circle-outline"></ion-icon> Add New Student
                                 </a>                                                                
                             </div>
