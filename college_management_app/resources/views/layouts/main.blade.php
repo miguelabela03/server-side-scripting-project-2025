@@ -51,14 +51,14 @@
         </div>
     </nav>
 
-    {{ -- content -- }}
+    @yield('content')
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="{{ assets('js/custom.js') }}"></script>
-    <script src="{{ assets('js/jquery.min.js') }}"></script>
-    <script src="{{ assets('js/popper.min.js') }}"></script>
-    <script src="{{ assets('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
