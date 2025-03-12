@@ -1,0 +1,125 @@
+/* Custom CSS to make buttons square */
+.btn-square {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 0; /* Remove the border-radius to make it square */
+}
+
+/* Style for enlarged icons */
+.btn-square ion-icon {
+    font-size: 20px; /* Adjust this value to make icons larger */
+}
+
+/* Maintain other styles */
+body {
+    font-family: 'Varela Round', sans-serif;
+    background: #95afc0;
+}
+
+.navbar {
+    background: #fff;
+    -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+    padding: 10px 16px;
+}
+
+/* Make navbar text black */
+.navbar .navbar-brand,
+.navbar .navbar-nav .nav-link {
+    color: #000;
+}
+
+/* Active link color */
+.navbar-light .navbar-nav .active > .nav-link {
+    color: #000; /* Change active link color to black */
+}
+
+.nav-icon-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-icon-text ion-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.nav-icon-text span {
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+/* Hover effect */
+.navbar .navbar-nav .nav-link:hover {
+    color: #435d7d; /* Change the text color on hover */
+}
+
+.navbar .navbar-nav .nav-link:hover .nav-icon-text ion-icon {
+    color: #435d7d; /* Change the icon color on hover */
+}
+
+.fileinput {
+    text-align: center;
+}
+
+ul.pagination {
+    margin-bottom: 0;
+}
+
+.card-title {
+    color: #fff;
+    background: #123867;
+    padding: 16px 20px;
+}
+
+.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#addNew {
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px; /* Increase font size */
+    padding: 5px 10px; /* Increase padding for a bigger button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#addNew ion-icon {
+    font-size: 20px; /* Adjust the size to make the icon larger */
+    margin-right: 8px; /* Add space between the icon and the text */
+}
+
+#toggleDirection {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#toggleDirection ion-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Adjust padding/margin for better alignment */
+.position-absolute a {
+    margin: 10px 20px; /* Adjust as needed for better positioning */
+}
