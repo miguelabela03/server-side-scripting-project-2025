@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,34 +23,20 @@ Route::get('/', function () {
 
 // ------------------------------- College Named Routes -------------------------------
 // This route will show the user a list of all the colleges
-Route::get('/colleges', function() {
-    return view('colleges.index');
-})->name('colleges.index');
+Route::get('/colleges', [CollegeController::class, 'index'])->name('college.index');
 
 // This route will direct the user to create a new college
-Route::get('/colleges/create', function() {
-    return view('colleges.create');
-})->name('colleges.create');
+Route::get('/colleges/create', [CollegeController::class, 'create'])->name('college.create');
 
 // This route that will enable the user to view a specific college
-Route::get('/colleges/{id}', function($id) {
-    $college = App\Models\College::find($id);
-    return view('colleges.show', compact('college'));
-})->name('colleges.show');
+Route::get('/colleges/{id}', [CollegeController::class, 'show'])->name('college.show');
 
 // ------------------------------- Student Named Routes -------------------------------
 // This route will show the user a list of all the students
-Route::get('/students', function() {
-    return view('students.index'); 
-})->name('students.index');
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
 // This route will direct the user to create a new student
-Route::get('/students/create', function() {
-    return view('students.create');
-})->name('students.create');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
 // This route will enable the user view a specific student
-Route::get('/students/{id}', function($id) {
-    $student = App\Models\Student::find($id);
-    return view('students.show', compact('student'));
-})->name('students.show');
+Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
