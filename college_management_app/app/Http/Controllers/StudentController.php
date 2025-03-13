@@ -29,6 +29,11 @@ class StudentController extends Controller
         return view('students.create', compact('colleges'));
     }
 
+    // This function will store the student form data
+    public function store(Request $request) {
+        dd($request->all());
+    }
+
     // This function will display specific student details
     public function show($id) {
         $student = Student::find($id);

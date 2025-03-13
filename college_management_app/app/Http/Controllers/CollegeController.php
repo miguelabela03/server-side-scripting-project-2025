@@ -18,6 +18,11 @@ class CollegeController extends Controller
         return view('colleges.create');
     }
 
+    // This function will store the college form data
+    public function store(Request $request) {
+        dd($request->all());
+    }
+
     // This function will display specific college details
     public function show($id) {
         $college = College::find($id);
