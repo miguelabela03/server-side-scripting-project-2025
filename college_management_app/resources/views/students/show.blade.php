@@ -18,35 +18,35 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-md-3 col-form-label">Student Name</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">Tom</p>
+                                            <p class="form-control-plaintext text-muted">{{ $student->name }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="email" class="col-md-3 col-form-label">Email</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">tom@gmail.com</p>
+                                            <p class="form-control-plaintext text-muted">{{ $student->email }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="phone" class="col-md-3 col-form-label">Phone</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">12345678</p>
+                                            <p class="form-control-plaintext text-muted">{{ $student->phone }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="dob" class="col-md-3 col-form-label">Date of Birth</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">01/01/20001</p>
+                                            <p class="form-control-plaintext text-muted">{{ $student->dob }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="college_id" class="col-md-3 col-form-label">College Name</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">College 1</p>
+                                            <p class="form-control-plaintext text-muted">{{ $student->college->name }}</p>
                                         </div>
                                     </div>
 

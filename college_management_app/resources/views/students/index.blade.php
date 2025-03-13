@@ -42,7 +42,7 @@
                                             <td>{{ $student->dob }}</td>
                                             <td>{{ $student->college->name }}</td>
                                             <td width="150">
-                                                <a href="showStudent.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
+                                                <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-outline-info btn-square" title="Show">
                                                     <ion-icon class="view" name="eye-outline"></ion-icon>
                                                 </a>
                                                 <a href="studentForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
