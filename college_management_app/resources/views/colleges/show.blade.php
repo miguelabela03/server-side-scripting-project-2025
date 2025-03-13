@@ -15,14 +15,14 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-md-3 col-form-label">College Name</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">College 1</p>
+                                            <p class="form-control-plaintext text-muted">{{ $college->name }}</p>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
                                         <label for="address" class="col-md-3 col-form-label">Address</label>
                                         <div class="col-md-9">
-                                            <p class="form-control-plaintext text-muted">Address 1</p>
+                                            <p class="form-control-plaintext text-muted">{{ $college->address }}</p>
                                         </div>
                                     </div>
                                     <hr>

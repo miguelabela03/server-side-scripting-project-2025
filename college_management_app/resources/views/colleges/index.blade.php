@@ -31,7 +31,7 @@
                                             <td>{{ $college->name }}</td>
                                             <td>{{ $college->address }}</td>
                                             <td width="150">
-                                                <a href="showCollege.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
+                                                <a href="{{ route('colleges.show', $college->id) }}" class="btn btn-sm btn-outline-info btn-square" title="Show">
                                                     <ion-icon class="view" name="eye-outline"></ion-icon>
                                                 </a>
                                                 <a href="collegeForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
