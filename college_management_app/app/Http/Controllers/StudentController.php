@@ -8,6 +8,7 @@ use App\Models\Student;
 
 class StudentController extends Controller
 {
+    // This function will display all the students
     public function index() {
         $colleges = College::orderby('name')->pluck('name', 'id')->prepend('All Colleges', ''); // Getting all the college names, ordering them, and adding 'All Colleges' as default
 
@@ -22,11 +23,13 @@ class StudentController extends Controller
         return view('students.index', compact('students', 'colleges'));
     }
 
+    // This function will create a new student
     public function create() {
         $colleges = College::orderby('name')->pluck('name', 'id')->prepend('All Colleges', ''); // This is used to show the college drop-down within the form
         return view('students.create', compact('colleges'));
     }
 
+    // This function will display specific student details
     public function show($id) {
         $student = Student::find($id);
         return view('students.show', compact('student'));

@@ -28,7 +28,7 @@ Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.ind
 // This route will direct the user to create a new college
 Route::get('/colleges/create', [CollegeController::class, 'create'])->name('colleges.create');
 
-// This route that will enable the user to view a specific college
+// This route that will enable the user to view the details of a specific college
 Route::get('/colleges/{id}', [CollegeController::class, 'show'])->name('colleges.show');
 
 // ------------------------------- Student Named Routes -------------------------------
@@ -38,5 +38,8 @@ Route::get('/students', [StudentController::class, 'index'])->name('students.ind
 // This route will direct the user to create a new student
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
-// This route will enable the user view a specific student
+// This route will store the details of a new student
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+
+// This route will enable the user view the details of a specific student
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
