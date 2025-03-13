@@ -23,7 +23,8 @@ class StudentController extends Controller
     }
 
     public function create() {
-        return view('students.create');
+        $colleges = College::orderby('name')->pluck('name', 'id')->prepend('All Colleges', ''); // This is used to show the college drop-down within the form
+        return view('students.create', compact('colleges'));
     }
 
     public function show($id) {
