@@ -10,7 +10,9 @@
                             <strong>Add New College</strong>
                         </div>
                         <div class="card-body">
-                            @include('colleges._form')
+                            <form action="{{ route('colleges.store') }}" method="POST">
+                                @include('colleges._form')
+                            </form>
                         </div>
                     </div>
                 </div>
