@@ -8,7 +8,8 @@ use App\Models\College;
 class CollegeController extends Controller
 {
     public function index() {
-        return view('colleges.index');
+        $colleges = College::all(); // Getting all the colleges from the database
+        return view('colleges.index', compact('colleges'));
     }
 
     public function create() {

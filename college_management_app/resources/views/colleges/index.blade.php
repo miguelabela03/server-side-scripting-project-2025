@@ -24,32 +24,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>College 1</td>
-                                    <td>Address 1</td>
-                                    <td width="150">
-                                        <a href="showCollege.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
-                                            <ion-icon class="view" name="eye-outline"></ion-icon>
-                                        </a>
-                                        <a href="collegeForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
-                                            <ion-icon class="edit" name="create-outline"></ion-icon>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>College 2</td>
-                                    <td>Address 2</td>
-                                    <td width="150">
-                                        <a href="showCollege.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
-                                            <ion-icon class="view" name="eye-outline"></ion-icon>
-                                        </a>
-                                        <a href="collegeForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
-                                            <ion-icon class="edit" name="create-outline"></ion-icon>
-                                        </a>
-                                    </td>
-                                </tr>
+                                @if ($colleges->count() > 0)
+                                    @foreach ($colleges as $index => $college)
+                                        <tr>
+                                            <th scope="row">{{ $index + 1 }}</th>
+                                            <td>{{ $college->name }}</td>
+                                            <td>{{ $college->address }}</td>
+                                            <td width="150">
+                                                <a href="showCollege.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
+                                                    <ion-icon class="view" name="eye-outline"></ion-icon>
+                                                </a>
+                                                <a href="collegeForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
 
