@@ -23,13 +23,13 @@ Route::get('/', function () {
 
 // ------------------------------- College Named Routes -------------------------------
 // This route will show the user a list of all the colleges
-Route::get('/colleges', [CollegeController::class, 'index'])->name('college.index');
+Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.index');
 
 // This route will direct the user to create a new college
-Route::get('/colleges/create', [CollegeController::class, 'create'])->name('college.create');
+Route::get('/colleges/create', [CollegeController::class, 'create'])->name('colleges.create');
 
 // This route that will enable the user to view a specific college
-Route::get('/colleges/{id}', [CollegeController::class, 'show'])->name('college.show');
+Route::get('/colleges/{id}', [CollegeController::class, 'show'])->name('colleges.show');
 
 // ------------------------------- Student Named Routes -------------------------------
 // This route will show the user a list of all the students

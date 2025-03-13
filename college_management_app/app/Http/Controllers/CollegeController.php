@@ -17,6 +17,6 @@ class CollegeController extends Controller
 
     public function show($id) {
         $college = College::find($id);
-        return view('collesge.show', compact('college'));
+        return view('colleges.show', compact('college'));
     }
 }
