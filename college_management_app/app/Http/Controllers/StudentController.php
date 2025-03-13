@@ -8,7 +8,8 @@ use App\Models\Student;
 class StudentController extends Controller
 {
     public function index() {
-        return view('students.index');
+        $students = Student::all(); // Getting all the students from the database and storing the data the variable
+        return view('students.index', compact('students'));
     }
 
     public function create() {

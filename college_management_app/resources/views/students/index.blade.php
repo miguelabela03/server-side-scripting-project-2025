@@ -32,44 +32,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Tom</td>
-                                    <td>tom@gmail.com</td>
-                                    <td>12345678</td>
-                                    <td>01/01/2001</td>
-                                    <td>College 1</td>
-                                    <td width="150">
-                                        <a href="showStudent.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
-                                            <ion-icon class="view" name="eye-outline"></ion-icon>
-                                        </a>
-                                        <a href="studentForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
-                                            <ion-icon class="edit" name="create-outline"></ion-icon>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-outline-danger btn-square" title="Delete" onclick="confirm('Are you sure?')">
-                                            <ion-icon class="delete" name="trash-outline"></ion-icon>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jim</td>
-                                    <td>jim@gmail.com</td>
-                                    <td>87654321</td>
-                                    <td>02/02/2002</td>
-                                    <td>College 2</td>
-                                    <td width="150">
-                                        <a href="showStudent.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
-                                            <ion-icon class="view" name="eye-outline"></ion-icon>
-                                        </a>
-                                        <a href="studentForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
-                                            <ion-icon class="edit" name="create-outline"></ion-icon>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-outline-danger btn-square" title="Delete" onclick="confirm('Are you sure?')">
-                                            <ion-icon class="delete" name="trash-outline"></ion-icon>
-                                        </a>
-                                    </td>
-                                </tr>
+                                @if ($students->count() > 0)
+                                    @foreach ($students as $index => $student)
+                                        <tr>
+                                            <th scope="row">{{ $index + 1 }}</th>
+                                            <td>{{ $student->name }}</td>
+                                            <td>{{ $student->email }}</td>
+                                            <td>{{ $student->phone }}</td>
+                                            <td>{{ $student->dob }}</td>
+                                            <td>{{ $student->college->name }}</td>
+                                            <td width="150">
+                                                <a href="showStudent.html" class="btn btn-sm btn-outline-info btn-square" title="Show">
+                                                    <ion-icon class="view" name="eye-outline"></ion-icon>
+                                                </a>
+                                                <a href="studentForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
+                                                    <ion-icon class="edit" name="create-outline"></ion-icon>
+                                                </a>
+                                                <a href="#" class="btn btn-sm btn-outline-danger btn-square" title="Delete" onclick="confirm('Are you sure?')">
+                                                    <ion-icon class="delete" name="trash-outline"></ion-icon>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
