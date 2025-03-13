@@ -2,11 +2,12 @@
     <div class="row align-items-center">
         <div class="col-md-6">
             <div class="input-group mb-3">
-                <select class="custom-select">
-                    <option value="" selected>All Colleges</option>
+                <select id="filter_college_id" class="custom-select">
+                    
                     @foreach($colleges as $id=>$name)
-                        <option value={{ $id }}>{{ $name }}</option>
+                        <option {{ $id == request('college_id') ? 'selected' : '' }} value={{ $id }}>{{ $name }}</option>
                     @endforeach
+
                 </select>
             </div>
         </div>
