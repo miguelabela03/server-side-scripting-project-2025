@@ -8,9 +8,6 @@
                     <div class="card">
                         <div class="card-header card-title position-relative">
                             <strong>Student Details</strong>
-                            <div class="position-absolute top-right">
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -53,7 +50,7 @@
                                     <hr>
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6">
-                                            <a href="#" class="btn btn-outline-primary">Edit</a>
+                                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-primary">Edit</a>
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <a href="{{ route('students.index') }}" class="btn btn-outline-secondary">Cancel</a>

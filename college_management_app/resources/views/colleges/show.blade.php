@@ -28,7 +28,7 @@
                                     <hr>
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6">
-                                            <a href="#" class="btn btn-outline-primary">Edit</a>
+                                            <a href="{{ route('colleges.edit', $college->id) }}" class="btn btn-outline-primary">Edit</a>
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <a href="{{ route('colleges.index') }}" class="btn btn-outline-secondary">Cancel</a>
