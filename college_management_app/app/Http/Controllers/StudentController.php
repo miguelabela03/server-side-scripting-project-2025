@@ -51,7 +51,13 @@ class StudentController extends Controller
             'college_id' => 'required|exists:colleges,id',
         ]);
     
-        dd($request->all());
+        // dd($request->all()); // This was done for testing purposes
+
+        // Adding all the details into the database, within the student table
+        Student::create($request->all());
+
+        // Redirecting the user back to the student list and displaying a success message
+        return redirect()->route('students.index')->with('message', 'Student has been added successfully');
     }    
 
     // This function will display specific student details

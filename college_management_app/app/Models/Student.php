@@ -10,6 +10,7 @@ class Student extends Model
     use HasFactory;
 
     // Enable mass assignment
+    // The foreign id is important to save the record within the database
     protected $fillable = ["name", "email", "phone", "dob", "college_id"];
 
     // Defining the relationship with the College model
