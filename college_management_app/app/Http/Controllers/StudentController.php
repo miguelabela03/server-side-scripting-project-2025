@@ -10,17 +10,27 @@ class StudentController extends Controller
 {
     // This function will display all the students
     public function index() {
-        $colleges = College::orderby('name')->pluck('name', 'id')->prepend('All Colleges', ''); // Getting all the college names, ordering them, and adding 'All Colleges' as default
+        // Getting all the college names, ordering them, and adding 'All Colleges' as default
+        // pluck() is used to extract specific column values from a collection or query
+        $colleges = College::orderby('name')->pluck('name', 'id')->prepend('All Colleges', '');
 
-        if(request('college_id') == null) { // Null refers to when no option is selected
-            // Getting all the students from the database and storing the data the variable
-            $students = Student::all(); 
+        // Setting the default sorting (ascending order)
+        $sortType = request('sort', 'asc');
+        // Getting the current college once filtering the students by college
+        $selectedCollege = request('college_id');
+
+        if(empty($selectedCollege)) { // If no college is chosen
+            // Getting all the students from the database and sorting the students by name
+            $students = Student::orderby('name', $sortType)->get(); 
         } else {
-            // If a college is selected, get all the students in that college
-            $students = Student::where('college_id', request('college_id'))->get();
+            // If a college is selected, get all the students in that college and also sort accordingly
+            $students = Student::where('college_id', $selectedCollege)->orderby('name', $sortType)->get();
         }
         
-        return view('students.index', compact('students', 'colleges'));
+        // The chosen college to filter by is also being passed so that when the user has filtered by a 
+        // specific college and wishes to order the students by name aswell, they are not redirected 
+        // to the student index view
+        return view('students.index', compact('students', 'colleges', 'sortType', 'selectedCollege'));
     }
 
     // This function will create a new student

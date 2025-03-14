@@ -20,9 +20,10 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Student Name 
-                                        <button id="toggleDirection" class="btn btn-link p-0 ml-2">
-                                            <ion-icon id="directionIcon" name="chevron-down-outline"></ion-icon>
-                                        </button>
+                                        <a href="{{ route('students.index', ['sort' => $sortType === 'asc' ? 'desc' : 'asc', 'college_id' => $selectedCollege]) }}" 
+                                            id="toggleDirection" class="btn btn-link p-0 ml-2">
+                                             <ion-icon id="directionIcon" name="{{ $sortType === 'asc' ? 'chevron-up-outline' : 'chevron-down-outline' }}"></ion-icon>
+                                         </a>
                                     </th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Phone</th>
