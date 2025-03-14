@@ -52,12 +52,16 @@
                                                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
                                                     <ion-icon class="edit" name="create-outline"></ion-icon>
                                                 </a>
-                                                <a href="#" class="btn btn-sm btn-outline-danger btn-square" title="Delete" onclick="confirm('Are you sure?')">
+                                                <a href="{{ route('students.destroy', $student->id) }}" class="btn-delete btn btn-sm btn-outline-danger btn-square" title="Delete">
                                                     <ion-icon class="delete" name="trash-outline"></ion-icon>
                                                 </a>
                                             </td>
                                         </tr>
                                     @endforeach
+                                    <form id="form-delete" method="POST" style="display: none">
+                                        @method('DELETE')
+                                        @csrf
+                                    </form>
                                 @endif
                             </tbody>
                         </table>

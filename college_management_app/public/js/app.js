@@ -35,3 +35,23 @@ if(toggleDirection) { // If the arrow button is visible
         }
     });
 }
+
+// Checking if the delete button is found or not
+document.addEventListener('DOMContentLoaded', function() {
+    var deleteBtn = document.querySelectorAll('.btn-delete');
+    var visibleButtons = deleteBtn.length > 0; // Check if there are any buttons visable
+
+    if (visibleButtons) {
+        deleteBtn.forEach((button) => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (confirm("Are you sure?")) {
+                    let action = this.getAttribute('href');
+                    let form = document.getElementById('form-delete');
+                    form.setAttribute('action', action);
+                    form.submit();
+                }
+            });
+        });
+    }
+});

@@ -92,4 +92,11 @@ class StudentController extends Controller
 
         return redirect()->route('students.index')->with('message', 'Student has been updated successfully!');
     }
+
+    // This function will delete/destroy the contact with the specific id
+    public function destroy($id) {
+        $student = Student::find($id);
+        $student->delete(); // The student will be deleting after the correct student id is found
+        return back()->with('message', 'Student has been deleted successfully!');
+    }
 }

@@ -57,3 +57,6 @@ Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('stu
 
 // This route will process the update values of the student
 Route::put('/students/{id}', [StudentController::class, 'update'])->name('students.update');
+
+// This route will enable the user to delete a particular student
+Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
