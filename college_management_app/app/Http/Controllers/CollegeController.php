@@ -27,7 +27,13 @@ class CollegeController extends Controller
             'address' => 'required',
         ]);
 
-        dd($request->all());
+        // dd($request->all());
+
+        // Adding all the college details into the database and table
+        College::create($request->all());
+
+        // Redirecting the user back to the college list and displaying a success message
+        return redirect()->route('colleges.index')->with('message', 'College has been added successfully');
     }
 
     // This function will display specific college details

@@ -24,6 +24,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if ($message = session('message'))
+                                    <div id="success-alert" class="alert alert-success">{{ $message }}</div>
+                                @endif
+
                                 @if ($colleges->count() > 0)
                                     @foreach ($colleges as $index => $college)
                                         <tr>
