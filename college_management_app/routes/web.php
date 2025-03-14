@@ -30,8 +30,14 @@ Route::get('/colleges/create', [CollegeController::class, 'create'])->name('coll
 // This route will store the details of a new college
 Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.store');
 
-// This route that will enable the user to view the details of a specific college
+// This route will enable the user to view the details of a specific college
 Route::get('/colleges/{id}', [CollegeController::class, 'show'])->name('colleges.show');
+
+// This route will show the college edit form
+Route::get('/colleges/{id}/edit', [CollegeController::class, 'edit'])->name('colleges.edit');
+
+// This route will process the college update values
+Route::put('/colleges/{id}', [CollegeController::class, 'update'])->name('colleges.update');
 
 // ------------------------------- Student Named Routes -------------------------------
 // This route will show the user a list of all the students

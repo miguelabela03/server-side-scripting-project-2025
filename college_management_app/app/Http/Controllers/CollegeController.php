@@ -15,7 +15,8 @@ class CollegeController extends Controller
 
     // This function will create a new college
     public function create() {
-        return view('colleges.create');
+        $college = new College();
+        return view('colleges.create', compact('college'));
     }
 
     // This function will validate and store the college form data
@@ -39,6 +40,27 @@ class CollegeController extends Controller
     // This function will display specific college details
     public function show($id) {
         $college = College::find($id);
-        return view('colleges.show', compact('college'));
+        return view('colleges.show', compact('college')); // ['college'] => $college
+    }
+
+    // This function displays the college edit form for a specific college
+    public function edit($id) {
+        $college = College::find($id); // Find and store the college with the requested id
+        return view('colleges.edit', compact('college'));
+    }
+
+    // This function will update the details of a specific college from the edit form
+    // The same validation techniques are applied in the below function
+    // The id is added to the name validation so that when updating an existing record, the current college id is ignored
+    public function update($id, Request $request) {
+        $request->validate([
+            'name' => 'required|unique:colleges,name,' .$id,
+            'address' => 'required',
+        ]);
+
+        $college = College::find($id);
+        $college->update($request->all()); // Updating the college details
+
+        return redirect()->route('colleges.index')->with('message', 'College has been updated successfully!');
     }
 }
