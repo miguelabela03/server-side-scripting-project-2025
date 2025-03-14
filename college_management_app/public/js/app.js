@@ -3,7 +3,7 @@ var filterCollegeId = document.getElementById('filter_college_id');
 if(filterCollegeId) { // If the element is present then the college drop-down will work
     filterCollegeId.addEventListener('change',
         function() {
-            let collegeId = this.value || this.option[this.selectedIndex].value;
+            let collegeId = this.value || this.options[this.selectedIndex].value;
             window.location.href = window.location.href.split('?')[0] + '?college_id=' + collegeId; // This will show the id of the chosen college within the url
         }
     );
