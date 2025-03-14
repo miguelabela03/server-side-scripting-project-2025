@@ -18,8 +18,15 @@ class CollegeController extends Controller
         return view('colleges.create');
     }
 
-    // This function will store the college form data
+    // This function will validate and store the college form data
+    // Validation -> All fields are required
+    // Name: checking that the college name is unique, thus removing duplicate college names
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required|unique:colleges,name',
+            'address' => 'required',
+        ]);
+
         dd($request->all());
     }
 
