@@ -25,8 +25,9 @@ class StudentController extends Controller
 
     // This function will create a new student
     public function create() {
+        $student = new Student();
         $colleges = College::orderby('name')->pluck('name', 'id')->prepend('All Colleges', ''); // This is used to show the college drop-down within the form
-        return view('students.create', compact('colleges'));
+        return view('students.create', compact('colleges', 'student'));
     }
 
     // This function will validate and store the student form data
@@ -63,6 +64,32 @@ class StudentController extends Controller
     // This function will display specific student details
     public function show($id) {
         $student = Student::find($id);
-        return view('students.show', compact('student'));
+        return view('students.show', compact('student')); // ['student'] => $student
+    }
+
+    // This function is used to display the student edit form
+    public function edit($id) {
+        $student = Student::find($id);
+        $colleges = College::orderby('name')->pluck('name', 'id')->prepend('All Colleges', '');
+        return view('students.edit', compact('colleges', 'student')); // Note that the order does not matter within the compact() function
+    }
+
+    // This function will enable the user to update the student details from the edit form
+    // The same validation techniques used within the store function are being used below
+    // This time since the email is unique, the id of the student is being added to the validation within the email section 
+    // so that when the student details are being updated the current student email is not considered to be checked with for uniqueness
+    public function update($id, Request $request) {
+        $request->validate([
+            'name' => 'required|regex:/^[a-zA-Z ]+$/', 
+            'email' => 'required|email|regex:/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/|unique:students,email,'.$id,
+            'phone' => 'required|digits:8',
+            'dob' => 'required|date|before:today',
+            'college_id' => 'required|exists:colleges,id',
+        ]);
+
+        $student = Student::find($id); // Getting the specific student that is being updated
+        $student->update($request->all()); // Updating the new details
+
+        return redirect()->route('students.index')->with('message', 'Student has been updated successfully!');
     }
 }

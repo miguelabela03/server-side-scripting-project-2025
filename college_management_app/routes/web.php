@@ -15,9 +15,8 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// This route will direct the user to the students index view once the web application is loaded/opened for the first time
+Route::get('/', [StudentController::class, 'index'])->name('students.index');
 
 // Note: The '.' indicates that the blade.php view files are within a sub-folder
 
@@ -46,3 +45,9 @@ Route::post('/students', [StudentController::class, 'store'])->name('students.st
 
 // This route will enable the user view the details of a specific student
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
+
+// This route will make the edit student form visable for the user
+Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
+
+// This route will process the update values of the student
+Route::put('/students/{id}', [StudentController::class, 'update'])->name('students.update');

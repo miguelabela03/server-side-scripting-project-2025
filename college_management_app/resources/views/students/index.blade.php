@@ -49,7 +49,7 @@
                                                 <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-outline-info btn-square" title="Show">
                                                     <ion-icon class="view" name="eye-outline"></ion-icon>
                                                 </a>
-                                                <a href="studentForm.html" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
+                                                <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-outline-secondary btn-square" title="Edit">
                                                     <ion-icon class="edit" name="create-outline"></ion-icon>
                                                 </a>
                                                 <a href="#" class="btn btn-sm btn-outline-danger btn-square" title="Delete" onclick="confirm('Are you sure?')">
