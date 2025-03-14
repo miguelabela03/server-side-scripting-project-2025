@@ -36,6 +36,7 @@ class StudentController extends Controller
     //     a) at least one character is before the @ symbol ([^@]+@)
     //     b) at least one letter is after the @ symbol and before a dot ([^@]+\.)
     //     c) at least 2 letters are present after the dot ([a-zA-Z]{2,}$)
+    //     d) finally the email is compared with other emails within the table to mitigate duplicate emails
     // Phone: the number 8 ensures that the phone number has exactly 8 digits (it acts as a min and max),
     //        and the 'digits' rule only accepts numbers without a - or +
     // Date of Birth: date is used to check for a valid date,
@@ -44,7 +45,7 @@ class StudentController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|regex:/^[a-zA-Z ]+$/', 
-            'email' => 'required|email|regex:/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/',
+            'email' => 'required|email|regex:/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/|unique:students,email',
             'phone' => 'required|digits:8',
             'dob' => 'required|date|before:today',
             'college_id' => 'required|exists:colleges,id',
